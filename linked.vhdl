@@ -7,7 +7,7 @@ use ieee.numeric_std.all ;
 
 package linked is
     type linked_item;
-    type linked_list is access linked_item; --pointer to item
+    type linked_list is access linked_item;
 
     type linked_item is record
         value : integer;
@@ -17,8 +17,6 @@ package linked is
     procedure linked_insert(variable Head : inout linked_list; constant value : in integer);
     procedure linked_append(variable Head : inout linked_list; constant value : in integer);
     procedure linked_free(variable Head : inout linked_list);
-
-  -- function inside (constant E : ElementType; constant A : in ArrayofElementType) return boolean ;
 end linked ;
 
 package body linked is
@@ -70,5 +68,4 @@ package body linked is
         end loop;
     end procedure;
 
-end linked ;
-
+end linked;
