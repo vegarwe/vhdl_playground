@@ -4,7 +4,8 @@ set -e
 
 function clean {
     mkdir -p work
-    ghdl --clean --workdir=work
+    rm   -rf work/*
+    #ghdl --clean --workdir=work
 }
 
 function compile {
