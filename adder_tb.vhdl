@@ -50,15 +50,15 @@ begin
                  ('1', '1', '1', '1', '1'));
         variable l : line;
     begin
-    TranscriptOpen("transript");
-    SetTranscriptMirror;
-    SetAlertLogJustify;
-    SetLogEnable(AlertLogId => ALERTLOG_BASE_ID, Level => DEBUG,  Enable => TRUE, DescendHierarchy => TRUE);
-    SetLogEnable(AlertLogId => ALERTLOG_BASE_ID, Level => INFO ,  Enable => TRUE, DescendHierarchy => TRUE);
-    SetLogEnable(AlertLogId => ALERTLOG_BASE_ID, Level => FINAL,  Enable => TRUE, DescendHierarchy => TRUE);
-    SetLogEnable(AlertLogId => ALERTLOG_BASE_ID, Level => PASSED, Enable => TRUE, DescendHierarchy => TRUE);
+        TranscriptOpen("transript");
+        SetTranscriptMirror;
+        SetAlertLogJustify;
+        SetLogEnable(AlertLogId => ALERTLOG_BASE_ID, Level => DEBUG,  Enable => TRUE, DescendHierarchy => TRUE);
+        SetLogEnable(AlertLogId => ALERTLOG_BASE_ID, Level => INFO ,  Enable => TRUE, DescendHierarchy => TRUE);
+        SetLogEnable(AlertLogId => ALERTLOG_BASE_ID, Level => FINAL,  Enable => TRUE, DescendHierarchy => TRUE);
+        SetLogEnable(AlertLogId => ALERTLOG_BASE_ID, Level => PASSED, Enable => TRUE, DescendHierarchy => TRUE);
 
-    Log(ALERTLOG_BASE_ID, "TCR-adsf", FINAL);
+        Log(ALERTLOG_BASE_ID, "TCR-adsf", FINAL);
 
         --  Check each pattern.
         for i in patterns'range loop
@@ -75,7 +75,8 @@ begin
                 report "bad carray out value" severity error;
         end loop;
 
-    std.env.stop(0); --! Gracefully stops the simulation
+        TranscriptClose;
+        std.env.stop(0); --! Gracefully stops the simulation
         --  Wait forever; this will finish the simulation.
         wait;
     end process;
